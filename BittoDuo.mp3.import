@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/BittoDuo.mp3-631428af90dab40cfc1c433510e22e82.mp3str"
+
+[deps]
+
+source_file="res://BittoDuo.mp3"
+dest_files=[ "res://.import/BittoDuo.mp3-631428af90dab40cfc1c433510e22e82.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
