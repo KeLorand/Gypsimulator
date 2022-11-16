@@ -14,6 +14,11 @@ config/name="Gypsimulator"
 run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
 
+[global]
+
+editor=false
+external=false
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
