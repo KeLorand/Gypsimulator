@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://metal2.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 28.5, 18.5 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -1.5, -0.5 )
+shape = SubResource( 1 )
+
+[node name="Metal2" type="Sprite" parent="StaticBody2D"]
+scale = Vector2( 0.133789, 0.133789 )
+texture = ExtResource( 1 )
