@@ -14,7 +14,7 @@ public class CarScript : Node2D
 	{
 		movementSpeed = 500; 
 		direction = new Vector2(0, 0);
-		car = GetNode("StaticBody2D/CollisionPolygon2D/Sprite") as Sprite;
+		car = GetNode("KinematicBody2D/Sprite") as Sprite;
 	}
 
 

@@ -3,9 +3,7 @@ using System;
 
 public class GameHandler : Node2D
 {
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
+
 
     [Export] PackedScene Metal1;
     [Export] PackedScene Metal2;
@@ -37,7 +35,6 @@ public class GameHandler : Node2D
         metal1timerTime += delta;
         metal2timerTime += delta;
         metal3timerTime += delta;
-        GD.Print(metal1timerTime);
 
         if (metal1timerTime >= metal1timerWaitTime)
         {
