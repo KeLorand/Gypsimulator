@@ -5,20 +5,24 @@ public class Metal1 : Area2D
 {
 
 
+    private Node2D ScriptNode;
+    
 
-    private Node2D MainNode;
-    private GameHandlerScript gameHandler;
+    private GameHandler gameHandler;
+
+
 
 
     public override void _Ready()
     {
-        MainNode = GetNode("GameHandler") as Node2D;
-        gameHandler = MainNode as GameHandlerScript;
+
+        ScriptNode = GetNode("/root/Node2D") as Node2D;
+        gameHandler = ScriptNode as GameHandler;
     }
 
     public void _on_Area2D_body_entered(PhysicsBody2D body)
     {
-        
+        gameHandler.points++;
         QueueFree();
     }
 }
