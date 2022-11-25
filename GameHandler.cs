@@ -5,6 +5,7 @@ public class GameHandler : Node2D
 {
 
     private Label metalLabel;
+    private Label moneyLabel;
     [Export] PackedScene Metal1;
     [Export] PackedScene Metal2;
     [Export] PackedScene Metal3;
@@ -21,6 +22,7 @@ public class GameHandler : Node2D
     private float metal3timerWaitTime = 20f;
 
     public int points = 0;
+    public int money = 0;
     
 
 
@@ -28,7 +30,8 @@ public class GameHandler : Node2D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        metalLabel = GetNode("Car/Label") as Label;
+        metalLabel = GetNode("Car/MetalLabel") as Label;
+        moneyLabel = GetNode("Car/MoneyLabel") as Label;
     }
 
     //  // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -75,6 +78,8 @@ public class GameHandler : Node2D
             SpawnMetal3();
             metal3timerTime = 0f;
         }
+
+        moneyLabel.Text = money.ToString();
 
 
     }

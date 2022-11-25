@@ -7,7 +7,7 @@
 [ext_resource path="res://GameHandler.cs" type="Script" id=5]
 [ext_resource path="res://Metal1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Metal3.tscn" type="PackedScene" id=7]
-[ext_resource path="res://PoliceCar.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Meh.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Metal2.tscn" type="PackedScene" id=9]
 
 [node name="Node2D" type="Node2D"]
@@ -36,12 +36,20 @@ texture = ExtResource( 2 )
 position = Vector2( -717, -456 )
 polygon = PoolVector2Array( 206, 132, 188, 132, 181, 134, 171, 145, 157, 146, 155, 148, 159, 161, 170, 162, 172, 160, 173, 165, 177, 168, 183, 169, 186, 166, 187, 162, 235, 163, 237, 167, 242, 169, 246, 168, 250, 166, 252, 162, 254, 162, 256, 157, 259, 149, 250, 147, 233, 145, 224, 134 )
 
-[node name="Label" type="Label" parent="Car"]
+[node name="MetalLabel" type="Label" parent="Car"]
 margin_left = -1025.0
 margin_top = -589.0
+margin_right = -806.0
 margin_bottom = -575.0
 text = "Metal Label:"
-align = 1
+valign = 1
+
+[node name="MoneyLabel" type="Label" parent="Car"]
+margin_left = -1025.0
+margin_top = -560.0
+margin_right = -806.0
+margin_bottom = -546.0
+text = "Pénz:"
 valign = 1
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -53,4 +61,4 @@ stream = ExtResource( 1 )
 autoplay = true
 
 [node name="Node2D" parent="." instance=ExtResource( 8 )]
-position = Vector2( 575, 175 )
+position = Vector2( 816, 184 )
