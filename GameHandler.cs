@@ -20,11 +20,13 @@ public class GameHandler : Node2D
     public int money = 0;
     public int horsePower = 90;
     public bool canMove = true;
+    public ProgressBar FuelBar;
     
     public override void _Ready()
     {
         metalLabel = GetNode("Car/MetalLabel") as Label;
         moneyLabel = GetNode("Car/MoneyLabel") as Label;
+        FuelBar = GetNode("Car/Fuel/ProgressBar") as ProgressBar;
     }
 
     
