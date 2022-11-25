@@ -4,17 +4,19 @@ using System;
 public class CarScript : Node2D
 {
 
-	public int movementSpeed;
 	public Vector2 direction;
-
 	public Sprite car;
+	private Node2D ScriptNode;
+    private GameHandler gameHandler;
+
 	
  
 	public override void _Ready()
 	{
-		movementSpeed = 500; 
 		direction = new Vector2(0, 0);
 		car = GetNode("KinematicBody2D/Sprite") as Sprite;
+		ScriptNode = GetNode("/root/Node2D") as Node2D;
+        gameHandler = ScriptNode as GameHandler;
 	}
 
 
@@ -49,8 +51,12 @@ public class CarScript : Node2D
 		{
 			direction.y += 1;
 		}
-	   
-		Position += direction.Normalized() * movementSpeed * deltaTime;
+
+		if (gameHandler.canMove == true)
+		{
+			Position += direction.Normalized() * gameHandler.horsePower * deltaTime;
+		}
+		
 
 		
 	}

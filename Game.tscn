@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://BittoDuo.mp3" type="AudioStream" id=1]
 [ext_resource path="res://lada.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Metal3.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Meh.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Metal2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Tuner.tscn" type="PackedScene" id=10]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( -2, -1 )
@@ -62,3 +63,6 @@ autoplay = true
 
 [node name="Node2D" parent="." instance=ExtResource( 8 )]
 position = Vector2( 816, 184 )
+
+[node name="TunerShop" parent="." instance=ExtResource( 10 )]
+position = Vector2( 695, 384 )
