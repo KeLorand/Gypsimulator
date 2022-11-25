@@ -68,11 +68,14 @@ public class CarScript : Node2D
 
 		if(isMoving == true)
 		{
-			gameHandler.FuelBar.Value = gameHandler.FuelBar.Value - 0.01f;
+			gameHandler.FuelBar.Value = gameHandler.FuelBar.Value - 0.025f;
 		}
 
+		if (gameHandler.canMove == true)
+		{
+			Position += direction.Normalized() * gameHandler.horsePower * 2 * deltaTime;
+		}
 		
-		Position += direction.Normalized() * gameHandler.horsePower * 2 * deltaTime;
 	
 		
 		
