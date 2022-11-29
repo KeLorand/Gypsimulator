@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://BittoDuo.mp3" type="AudioStream" id=1]
 [ext_resource path="res://car.png" type="Texture" id=2]
@@ -15,7 +15,6 @@
 [ext_resource path="res://phone_up.png" type="Texture" id=13]
 [ext_resource path="res://phonemask.png" type="Texture" id=14]
 [ext_resource path="res://TuneBG.png" type="Texture" id=15]
-[ext_resource path="res://TuningApp.png" type="Texture" id=16]
 [ext_resource path="res://button_transparent.tres" type="StyleBox" id=17]
 
 [sub_resource type="RectangleShape2D" id=8]
@@ -48,10 +47,6 @@ script = ExtResource( 5 )
 Metal1 = ExtResource( 6 )
 Metal2 = ExtResource( 9 )
 Metal3 = ExtResource( 7 )
-
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 512, 300 )
-texture = ExtResource( 4 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 1 )
@@ -153,36 +148,56 @@ custom_styles/normal = SubResource( 3 )
 icon = ExtResource( 11 )
 
 [node name="MobileUI" type="Sprite" parent="Car/Mobile"]
+visible = false
 position = Vector2( 914, 416 )
 texture = ExtResource( 13 )
 
 [node name="MobileBG" type="Sprite" parent="Car/Mobile/MobileUI"]
+position = Vector2( 9.53674e-06, -1.38283e-05 )
 texture = ExtResource( 14 )
 
 [node name="TuningApp" type="Sprite" parent="Car/Mobile/MobileUI"]
-position = Vector2( -45, -109 )
-scale = Vector2( 0.75, 1 )
-texture = ExtResource( 16 )
-
-[node name="Label" type="Label" parent="Car/Mobile/MobileUI/TuningApp"]
-margin_left = -49.0
-margin_top = 25.0
-margin_right = 48.0
-margin_bottom = 39.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Tuning"
-align = 1
+position = Vector2( -56.3994, -125.4 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 4 )
 
 [node name="Button" type="Button" parent="Car/Mobile/MobileUI/TuningApp"]
-margin_left = -49.0
-margin_top = -38.0
-margin_right = 49.0
-margin_bottom = 24.0
+margin_left = -252.0
+margin_top = -255.0
+margin_right = 239.0
+margin_bottom = 245.0
 custom_styles/hover = ExtResource( 17 )
 custom_styles/pressed = ExtResource( 17 )
 custom_styles/focus = ExtResource( 17 )
 custom_styles/disabled = ExtResource( 17 )
 custom_styles/normal = ExtResource( 17 )
+
+[node name="Label" type="Label" parent="Car/Mobile/MobileUI"]
+margin_left = -77.6501
+margin_top = -100.9
+margin_right = -35.6501
+margin_bottom = -69.9001
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Tuning
+"
+
+[node name="SysTime" type="Label" parent="Car/Mobile/MobileUI"]
+margin_left = -80.0
+margin_top = -183.0
+margin_right = -52.0
+margin_bottom = -169.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0:00"
+align = 1
+
+[node name="Ctel" type="Label" parent="Car/Mobile/MobileUI"]
+margin_left = 46.0
+margin_top = -184.0
+margin_right = 76.0
+margin_bottom = -170.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "4G"
+align = 1
 
 [node name="Node2D" type="Node2D" parent="Car/Mobile"]
 
