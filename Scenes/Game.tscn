@@ -8,7 +8,7 @@
 [ext_resource path="res://car.png" type="Texture" id=6]
 [ext_resource path="res://CarScript.cs" type="Script" id=7]
 [ext_resource path="res://GameHandler.cs" type="Script" id=8]
-[ext_resource path="res://phonemask.png" type="Texture" id=9]
+[ext_resource path="res://iphonehatter.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/Metal1.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Metal3.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Meh.tscn" type="PackedScene" id=12]
@@ -92,10 +92,10 @@ stream = ExtResource( 2 )
 autoplay = true
 
 [node name="Node2D" parent="." instance=ExtResource( 12 )]
-position = Vector2( 816, 184 )
+position = Vector2( 1079, -627 )
 
 [node name="TunerShop" parent="." instance=ExtResource( 13 )]
-position = Vector2( 695, 384 )
+position = Vector2( 1074, 374 )
 
 [node name="Car" type="Node2D" parent="."]
 position = Vector2( 1025, 608 )
