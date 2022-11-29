@@ -1,7 +1,7 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://BittoDuo.mp3" type="AudioStream" id=1]
-[ext_resource path="res://lada.png" type="Texture" id=2]
+[ext_resource path="res://car.png" type="Texture" id=2]
 [ext_resource path="res://CarScript.cs" type="Script" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
 [ext_resource path="res://GameHandler.cs" type="Script" id=5]
@@ -16,6 +16,10 @@
 [ext_resource path="res://phonemask.png" type="Texture" id=14]
 [ext_resource path="res://TuneBG.png" type="Texture" id=15]
 [ext_resource path="res://TuningApp.png" type="Texture" id=16]
+[ext_resource path="res://button_transparent.tres" type="StyleBox" id=17]
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 43.5, 115 )
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.862745, 0.164706, 0.0156863, 1 )
@@ -74,9 +78,9 @@ position = Vector2( -511, -311 )
 scale = Vector2( 0.153333, 0.153333 )
 texture = ExtResource( 2 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Car/KinematicBody2D"]
-position = Vector2( -717, -456 )
-polygon = PoolVector2Array( 206, 132, 188, 132, 181, 134, 171, 145, 157, 146, 155, 148, 159, 161, 170, 162, 172, 160, 173, 165, 177, 168, 183, 169, 186, 166, 187, 162, 235, 163, 237, 167, 242, 169, 246, 168, 250, 166, 252, 162, 254, 162, 256, 157, 259, 149, 250, 147, 233, 145, 224, 134 )
+[node name="CarCollider" type="CollisionShape2D" parent="Car/KinematicBody2D"]
+position = Vector2( -517.5, -319 )
+shape = SubResource( 8 )
 
 [node name="MetalLabel" type="Label" parent="Car"]
 margin_left = -1025.0
@@ -149,7 +153,6 @@ custom_styles/normal = SubResource( 3 )
 icon = ExtResource( 11 )
 
 [node name="MobileUI" type="Sprite" parent="Car/Mobile"]
-visible = false
 position = Vector2( 914, 416 )
 texture = ExtResource( 13 )
 
@@ -160,6 +163,26 @@ texture = ExtResource( 14 )
 position = Vector2( -45, -109 )
 scale = Vector2( 0.75, 1 )
 texture = ExtResource( 16 )
+
+[node name="Label" type="Label" parent="Car/Mobile/MobileUI/TuningApp"]
+margin_left = -49.0
+margin_top = 25.0
+margin_right = 48.0
+margin_bottom = 39.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Tuning"
+align = 1
+
+[node name="Button" type="Button" parent="Car/Mobile/MobileUI/TuningApp"]
+margin_left = -49.0
+margin_top = -38.0
+margin_right = 49.0
+margin_bottom = 24.0
+custom_styles/hover = ExtResource( 17 )
+custom_styles/pressed = ExtResource( 17 )
+custom_styles/focus = ExtResource( 17 )
+custom_styles/disabled = ExtResource( 17 )
+custom_styles/normal = ExtResource( 17 )
 
 [node name="Node2D" type="Node2D" parent="Car/Mobile"]
 
