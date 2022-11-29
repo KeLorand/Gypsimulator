@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://BittoDuo.mp3" type="AudioStream" id=1]
 [ext_resource path="res://lada.png" type="Texture" id=2]
@@ -10,6 +10,33 @@
 [ext_resource path="res://Meh.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Metal2.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Tuner.tscn" type="PackedScene" id=10]
+[ext_resource path="res://phone_down.png" type="Texture" id=11]
+[ext_resource path="res://Mobile.cs" type="Script" id=12]
+[ext_resource path="res://phone_up.png" type="Texture" id=13]
+[ext_resource path="res://phonemask.png" type="Texture" id=14]
+[ext_resource path="res://TuneBG.png" type="Texture" id=15]
+[ext_resource path="res://TuningApp.png" type="Texture" id=16]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.862745, 0.164706, 0.0156863, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( -2, -1 )
@@ -17,6 +44,20 @@ script = ExtResource( 5 )
 Metal1 = ExtResource( 6 )
 Metal2 = ExtResource( 9 )
 Metal3 = ExtResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 512, 300 )
+texture = ExtResource( 4 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+autoplay = true
+
+[node name="Node2D" parent="." instance=ExtResource( 8 )]
+position = Vector2( 816, 184 )
+
+[node name="TunerShop" parent="." instance=ExtResource( 10 )]
+position = Vector2( 695, 384 )
 
 [node name="Car" type="Node2D" parent="."]
 position = Vector2( 1025, 608 )
@@ -53,16 +94,83 @@ margin_bottom = -546.0
 text = "Pénz:"
 valign = 1
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Fuel" type="Node2D" parent="Car"]
+z_index = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="Car/Fuel"]
+margin_left = -1025.0
+margin_top = -41.0
+margin_right = -722.0
+margin_bottom = -9.0
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+value = 100.0
+
+[node name="Label" type="Label" parent="Car/Fuel"]
+margin_left = -1025.0
+margin_top = -56.0
+margin_right = -722.0
+margin_bottom = -42.0
+text = "Üzemanyag Szint"
+align = 1
+
+[node name="Mobile" type="Node2D" parent="Car"]
+position = Vector2( -1025, -608 )
+z_index = 1
+script = ExtResource( 12 )
+
+[node name="MobileOpen" type="Button" parent="Car/Mobile"]
+margin_left = 816.0
+margin_top = 566.0
+margin_right = 1016.0
+margin_bottom = 616.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 0 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 3 )
+icon = ExtResource( 11 )
+
+[node name="MobileClose" type="Button" parent="Car/Mobile"]
+visible = false
+margin_left = 816.0
+margin_top = 212.0
+margin_right = 1016.0
+margin_bottom = 262.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 0 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 3 )
+icon = ExtResource( 11 )
+
+[node name="MobileUI" type="Sprite" parent="Car/Mobile"]
+visible = false
+position = Vector2( 914, 416 )
+texture = ExtResource( 13 )
+
+[node name="MobileBG" type="Sprite" parent="Car/Mobile/MobileUI"]
+texture = ExtResource( 14 )
+
+[node name="TuningApp" type="Sprite" parent="Car/Mobile/MobileUI"]
+position = Vector2( -45, -109 )
+scale = Vector2( 0.75, 1 )
+texture = ExtResource( 16 )
+
+[node name="Node2D" type="Node2D" parent="Car/Mobile"]
+
+[node name="DeathScreen" type="Node2D" parent="Car"]
+visible = false
+position = Vector2( -1025, -608 )
+z_index = 2
+
+[node name="Sprite" type="Sprite" parent="Car/DeathScreen"]
 position = Vector2( 512, 300 )
-texture = ExtResource( 4 )
+texture = ExtResource( 15 )
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 1 )
-autoplay = true
-
-[node name="Node2D" parent="." instance=ExtResource( 8 )]
-position = Vector2( 816, 184 )
-
-[node name="TunerShop" parent="." instance=ExtResource( 10 )]
-position = Vector2( 695, 384 )
+[connection signal="pressed" from="Car/Mobile/MobileOpen" to="Car/Mobile" method="_on_Button_pressed"]
+[connection signal="pressed" from="Car/Mobile/MobileClose" to="Car/Mobile" method="_on_MobileClose_pressed"]

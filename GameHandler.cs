@@ -11,28 +11,33 @@ public class GameHandler : Node2D
     [Export] PackedScene Metal3;
     private Random rng = new Random();
     private float metal1timerTime;
-    private float metal1timerWaitTime = 5f;
+    private float metal1timerWaitTime = 10f;
     private float metal2timerTime;
-    private float metal2timerWaitTime = 10f;
+    private float metal2timerWaitTime = 30f;
     private float metal3timerTime;
-    private float metal3timerWaitTime = 20f;
+    private float metal3timerWaitTime = 60f;
     public int points = 0;
     public int money = 0;
     public int horsePower = 90;
     public bool canMove = true;
+    public ProgressBar FuelBar;
+    private Node2D DeathScreen;
     
     public override void _Ready()
     {
         metalLabel = GetNode("Car/MetalLabel") as Label;
         moneyLabel = GetNode("Car/MoneyLabel") as Label;
+        FuelBar = GetNode("Car/Fuel/ProgressBar") as ProgressBar;
+        DeathScreen = GetNode("Car/DeathScreen") as Node2D;
     }
 
     
     public override void _Process(float delta)
     {
-
+        
         FormatPoints();
         MetalSpawner(delta);
+        NoFuel();
 
         moneyLabel.Text = money.ToString();
 
@@ -102,6 +107,15 @@ public class GameHandler : Node2D
         {
             SpawnMetal3();
             metal3timerTime = 0f;
+        }
+    }
+
+    void NoFuel()
+    {
+        if (FuelBar.Value == 0)
+        {
+            canMove = false;
+            DeathScreen.Visible = true;
         }
     }
 }
