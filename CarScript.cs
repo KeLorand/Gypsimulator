@@ -6,6 +6,7 @@ public class CarScript : Node2D
 
 	public Vector2 direction;
 	public Sprite car;
+	private CollisionShape2D carCollider;
 	private Node2D ScriptNode;
     private GameHandler gameHandler;
 	private bool isMoving = false;
@@ -17,6 +18,7 @@ public class CarScript : Node2D
 		direction = new Vector2(0, 0);
 		car = GetNode("KinematicBody2D/Sprite") as Sprite;
 		ScriptNode = GetNode("/root/Node2D") as Node2D;
+		carCollider = GetNode("KinematicBody2D/CarCollider") as CollisionShape2D;
         gameHandler = ScriptNode as GameHandler;
 	}
 
@@ -30,28 +32,26 @@ public class CarScript : Node2D
 		if (Input.IsActionPressed("ui_left"))
 		{
 			direction.x -= 1;
-			if (car.Scale.x > 0)
-			{
-				car.Scale = new Vector2(car.Scale.x * -1, car.Scale.y);
-			}
+			car.RotationDegrees = -90;
+			carCollider.RotationDegrees = -90;
 		}
 		if (Input.IsActionPressed("ui_right"))
 		{
 			direction.x += 1;
-			if (car.Scale.x < 0)
-			{
-				car.Scale = new Vector2(car.Scale.x * -1, car.Scale.y);
-			}
-			
+			car.RotationDegrees = 90;
+			carCollider.RotationDegrees = 90;	
 		}
 		if (Input.IsActionPressed("ui_up"))
 		{
 			direction.y -= 1;
-			
+			car.RotationDegrees = 0;
+			carCollider.RotationDegrees = 0;
 		}
 		if (Input.IsActionPressed("ui_down"))
 		{
 			direction.y += 1;
+			car.RotationDegrees = 180;
+			carCollider.RotationDegrees = 180;
 		}
 
 		if (Input.IsActionPressed("ui_down") || Input.IsActionPressed("ui_up") || Input.IsActionPressed("ui_right") || Input.IsActionPressed("ui_left"))
