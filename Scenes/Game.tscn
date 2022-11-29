@@ -1,21 +1,53 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=28 format=2]
 
-[ext_resource path="res://BittoDuo.mp3" type="AudioStream" id=1]
-[ext_resource path="res://car.png" type="Texture" id=2]
-[ext_resource path="res://CarScript.cs" type="Script" id=3]
-[ext_resource path="res://icon.png" type="Texture" id=4]
-[ext_resource path="res://GameHandler.cs" type="Script" id=5]
-[ext_resource path="res://Metal1.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Metal3.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Meh.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Metal2.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Tuner.tscn" type="PackedScene" id=10]
-[ext_resource path="res://phone_down.png" type="Texture" id=11]
-[ext_resource path="res://Mobile.cs" type="Script" id=12]
-[ext_resource path="res://phone_up.png" type="Texture" id=13]
-[ext_resource path="res://phonemask.png" type="Texture" id=14]
-[ext_resource path="res://TuneBG.png" type="Texture" id=15]
-[ext_resource path="res://button_transparent.tres" type="StyleBox" id=17]
+[ext_resource path="res://phone_up.png" type="Texture" id=1]
+[ext_resource path="res://BittoDuo.mp3" type="AudioStream" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://phone_down.png" type="Texture" id=4]
+[ext_resource path="res://TuneBG.png" type="Texture" id=5]
+[ext_resource path="res://car.png" type="Texture" id=6]
+[ext_resource path="res://CarScript.cs" type="Script" id=7]
+[ext_resource path="res://GameHandler.cs" type="Script" id=8]
+[ext_resource path="res://phonemask.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/Metal1.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Metal3.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Meh.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Tuner.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Metal2.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Mobile.cs" type="Script" id=15]
+[ext_resource path="res://button_transparent.tres" type="StyleBox" id=16]
+[ext_resource path="res://ut2.png" type="Texture" id=17]
+[ext_resource path="res://grass.png" type="Texture" id=18]
+
+[sub_resource type="TileSet" id=9]
+0/name = "ut2.png 0"
+0/texture = ExtResource( 17 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( -32, 0, 160, 128 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "grass.png 1"
+1/texture = ExtResource( 18 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( -32, 0, 160, 128 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 43.5, 115 )
@@ -43,24 +75,31 @@ bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( -2, -1 )
-script = ExtResource( 5 )
-Metal1 = ExtResource( 6 )
-Metal2 = ExtResource( 9 )
-Metal3 = ExtResource( 7 )
+script = ExtResource( 8 )
+Metal1 = ExtResource( 10 )
+Metal2 = ExtResource( 14 )
+Metal3 = ExtResource( 11 )
+
+[node name="Map" type="TileMap" parent="."]
+tile_set = SubResource( 9 )
+cell_size = Vector2( 100, 100 )
+cell_custom_transform = Transform2D( 100, 0, 0, 100, 0, 0 )
+format = 1
+tile_data = PoolIntArray( -393212, 0, 0, -393211, 0, 0, -393210, 0, 0, -327677, 1, 0, -327676, 0, 0, -327675, 0, 0, -327674, 0, 0, -327673, 0, 0, -262143, 1, 0, -262141, 1, 0, -262140, 0, 0, -262139, 0, 0, -262138, 0, 0, -262137, 0, 0, -196608, 1, 0, -196607, 1, 0, -196606, 1, 0, -196605, 1, 0, -196604, 0, 0, -196603, 0, 0, -196602, 0, 0, -196601, 0, 0, -131072, 1, 0, -131071, 1, 0, -131070, 1, 0, -131069, 1, 0, -131068, 0, 0, -131067, 0, 0, -131066, 0, 0, -131065, 0, 0, -65536, 1, 0, -65535, 1, 0, -65534, 1, 0, -65533, 1, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 1, 0, 9, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 1, 0, 65545, 1, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 1, 0, 131081, 1, 0, 196608, 1, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 1, 0, 196617, 1, 0, 262144, 1, 0, 262145, 1, 0, 262146, 1, 0, 262147, 1, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 1, 0, 262153, 1, 0, 327680, 1, 0, 327681, 1, 0, 327682, 1, 0, 327683, 1, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 1, 0, 327689, 1, 0, 393217, 1, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 1 )
+stream = ExtResource( 2 )
 autoplay = true
 
-[node name="Node2D" parent="." instance=ExtResource( 8 )]
+[node name="Node2D" parent="." instance=ExtResource( 12 )]
 position = Vector2( 816, 184 )
 
-[node name="TunerShop" parent="." instance=ExtResource( 10 )]
+[node name="TunerShop" parent="." instance=ExtResource( 13 )]
 position = Vector2( 695, 384 )
 
 [node name="Car" type="Node2D" parent="."]
 position = Vector2( 1025, 608 )
-script = ExtResource( 3 )
+script = ExtResource( 7 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="Car"]
 
@@ -71,7 +110,7 @@ current = true
 [node name="Sprite" type="Sprite" parent="Car/KinematicBody2D"]
 position = Vector2( -511, -311 )
 scale = Vector2( 0.153333, 0.153333 )
-texture = ExtResource( 2 )
+texture = ExtResource( 6 )
 
 [node name="CarCollider" type="CollisionShape2D" parent="Car/KinematicBody2D"]
 position = Vector2( -517.5, -319 )
@@ -116,7 +155,7 @@ align = 1
 [node name="Mobile" type="Node2D" parent="Car"]
 position = Vector2( -1025, -608 )
 z_index = 1
-script = ExtResource( 12 )
+script = ExtResource( 15 )
 
 [node name="MobileOpen" type="Button" parent="Car/Mobile"]
 margin_left = 816.0
@@ -130,7 +169,7 @@ custom_styles/pressed = SubResource( 5 )
 custom_styles/focus = SubResource( 6 )
 custom_styles/disabled = SubResource( 7 )
 custom_styles/normal = SubResource( 3 )
-icon = ExtResource( 11 )
+icon = ExtResource( 4 )
 
 [node name="MobileClose" type="Button" parent="Car/Mobile"]
 visible = false
@@ -145,32 +184,32 @@ custom_styles/pressed = SubResource( 5 )
 custom_styles/focus = SubResource( 6 )
 custom_styles/disabled = SubResource( 7 )
 custom_styles/normal = SubResource( 3 )
-icon = ExtResource( 11 )
+icon = ExtResource( 4 )
 
 [node name="MobileUI" type="Sprite" parent="Car/Mobile"]
 visible = false
 position = Vector2( 914, 416 )
-texture = ExtResource( 13 )
+texture = ExtResource( 1 )
 
 [node name="MobileBG" type="Sprite" parent="Car/Mobile/MobileUI"]
 position = Vector2( 9.53674e-06, -1.38283e-05 )
-texture = ExtResource( 14 )
+texture = ExtResource( 9 )
 
 [node name="TuningApp" type="Sprite" parent="Car/Mobile/MobileUI"]
 position = Vector2( -56.3994, -125.4 )
 scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
 [node name="Button" type="Button" parent="Car/Mobile/MobileUI/TuningApp"]
 margin_left = -252.0
 margin_top = -255.0
 margin_right = 239.0
 margin_bottom = 245.0
-custom_styles/hover = ExtResource( 17 )
-custom_styles/pressed = ExtResource( 17 )
-custom_styles/focus = ExtResource( 17 )
-custom_styles/disabled = ExtResource( 17 )
-custom_styles/normal = ExtResource( 17 )
+custom_styles/hover = ExtResource( 16 )
+custom_styles/pressed = ExtResource( 16 )
+custom_styles/focus = ExtResource( 16 )
+custom_styles/disabled = ExtResource( 16 )
+custom_styles/normal = ExtResource( 16 )
 
 [node name="Label" type="Label" parent="Car/Mobile/MobileUI"]
 margin_left = -77.6501
@@ -208,7 +247,7 @@ z_index = 2
 
 [node name="Sprite" type="Sprite" parent="Car/DeathScreen"]
 position = Vector2( 512, 300 )
-texture = ExtResource( 15 )
+texture = ExtResource( 5 )
 
 [connection signal="pressed" from="Car/Mobile/MobileOpen" to="Car/Mobile" method="_on_Button_pressed"]
 [connection signal="pressed" from="Car/Mobile/MobileClose" to="Car/Mobile" method="_on_MobileClose_pressed"]
