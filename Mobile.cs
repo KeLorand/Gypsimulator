@@ -17,10 +17,10 @@ public class Mobile : Node2D
 
     public override void _Ready()
     {
-        MobileUI = GetNode("MobileUI") as Sprite;
+        MobileUI = GetNode("MobileBG") as Sprite;
         MobileOpen = GetNode("MobileOpen") as Button;
         MobileClose = GetNode("MobileClose") as Button;
-        SysTimeLabel = GetNode("MobileUI/SysTime") as Label;
+        SysTimeLabel = GetNode("MobileBG/MobileUI/SysTime") as Label;
     }
 
     public void _on_Button_pressed()
