@@ -188,6 +188,10 @@ position = Vector2( -503, -310.999 )
 scale = Vector2( 0.05, 0.05 )
 texture = ExtResource( 6 )
 
+[node name="B" type="Position2D" parent="Car/KinematicBody2D/Sprite"]
+position = Vector2( -40, -60.02 )
+scale = Vector2( 20, 20 )
+
 [node name="CarCollider" type="CollisionShape2D" parent="Car/KinematicBody2D"]
 position = Vector2( -503.8, -314.2 )
 shape = SubResource( 8 )
