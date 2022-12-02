@@ -8,19 +8,26 @@ public class Gypsy : Node2D
     private GameHandler gameHandler;
     private float gypsyFTimer;
     private float gypsyFWait = 4f;
+    private float screenTimer;
+    private float screenWait = 12f;
+    
     private Sprite GypsySprite;
     private bool rotated = false;
+    private Sprite StealSprite;
+    private Label StealText;
 
     public override void _Ready()
     {
         GypsySprite = GetNode("Area2D/Sprite") as Sprite;
         ScriptNode = GetNode("/root/Node2D") as Node2D;
         gameHandler = ScriptNode as GameHandler;
+        StealSprite = GetNode("/root/Node2D/Car/StealScreen") as Sprite;
     }
 
     public void _on_Area2D_body_entered(PhysicsBody2D body)
     {
         gameHandler.points = 0;
+        StealSprite.Visible = true;
         GD.Print("A cigány ellopta az összes vasad!");
     }
 
@@ -28,6 +35,15 @@ public class Gypsy : Node2D
     {
         gypsyFTimer += delta;
 
+        if (StealSprite.Visible == true)
+        {
+            screenTimer += delta;
+            if (screenTimer >= screenWait)
+            {
+                StealSprite.Visible = false;
+                screenTimer = 0;
+            }
+        }
 
         if (gypsyFTimer > 0 && gypsyFTimer < 2)
         {
