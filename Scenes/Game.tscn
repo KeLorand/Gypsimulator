@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://phone_up.png" type="Texture" id=1]
 [ext_resource path="res://BittoDuo.mp3" type="AudioStream" id=2]
@@ -21,7 +21,9 @@
 [ext_resource path="res://kanyar.png" type="Texture" id=19]
 [ext_resource path="res://fold.png" type="Texture" id=20]
 [ext_resource path="res://Scenes/GasStation.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Scenes/PoliceCar.tscn" type="PackedScene" id=22]
+[ext_resource path="res://teglalap.png" type="Texture" id=22]
+[ext_resource path="res://Scenes/Gypsy.tscn" type="PackedScene" id=23]
+[ext_resource path="res://teglalapfeher.png" type="Texture" id=24]
 
 [sub_resource type="ConvexPolygonShape2D" id=10]
 points = PoolVector2Array( 0, 0, 100, 0, 100, 100, 0, 100 )
@@ -185,12 +187,8 @@ zoom = Vector2( 1.5, 1.5 )
 
 [node name="Sprite" type="Sprite" parent="Car/KinematicBody2D"]
 position = Vector2( -503, -310.999 )
-scale = Vector2( 0.05, 0.05 )
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 6 )
-
-[node name="B" type="Position2D" parent="Car/KinematicBody2D/Sprite"]
-position = Vector2( -40, -60.02 )
-scale = Vector2( 20, 20 )
 
 [node name="CarCollider" type="CollisionShape2D" parent="Car/KinematicBody2D"]
 position = Vector2( -503.8, -314.2 )
@@ -336,10 +334,49 @@ z_index = 2
 position = Vector2( 512, 300 )
 texture = ExtResource( 5 )
 
+[node name="StealScreen" type="Sprite" parent="Car"]
+visible = false
+position = Vector2( -508, -317 )
+z_index = 1
+texture = ExtResource( 22 )
+
+[node name="Sprite" type="Sprite" parent="Car/StealScreen"]
+texture = ExtResource( 24 )
+
+[node name="UpperText" type="Label" parent="Car/StealScreen/Sprite"]
+margin_left = -52.0
+margin_top = -243.0
+margin_right = -10.0
+margin_bottom = -229.0
+rect_scale = Vector2( 2, 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Jajj ne!"
+
+[node name="LowerText" type="Label" parent="Car/StealScreen/Sprite"]
+margin_left = -223.0
+margin_top = -176.0
+margin_right = 2.0
+margin_bottom = 8.0
+rect_scale = Vector2( 2, 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Az önnel testvériségben álló, \"C\" 
+típusú állampolgáűr, tisztességes 
+nevén Kalányos Armando Mario del
+Escobar lecampelte a MÉH telepet
+és ellopta az összes vasadat.
+Legközelebb kerüld el vele a testi
+kontaktust, így nem tudja ellopni,
+a \"nehezen\" szerzett fémjeid.
+
+
+UI.: eskü nem vagyok rasszista"
+
 [node name="GasStation" parent="." instance=ExtResource( 21 )]
 position = Vector2( 132, -951 )
 
-[node name="Node2D2" parent="." instance=ExtResource( 22 )]
+[node name="Gypsy" parent="." instance=ExtResource( 23 )]
+position = Vector2( 832, -720 )
+rotation = 1.5708
 
 [connection signal="pressed" from="Car/Mobile/MobileOpen" to="Car/Mobile" method="_on_Button_pressed"]
 [connection signal="pressed" from="Car/Mobile/MobileClose" to="Car/Mobile" method="_on_MobileClose_pressed"]

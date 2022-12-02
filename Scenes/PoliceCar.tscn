@@ -15,5 +15,3 @@ texture = ExtResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KinematicBody2D"]
 polygon = PoolVector2Array( -107, -84, 43, -83, 96, -45, 234, -35, 248, 67, -238, 67, -229, -42, -146, -47 )
-
-[node name="A" type="Position2D" parent="KinematicBody2D"]
