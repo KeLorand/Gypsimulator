@@ -19,10 +19,8 @@ public class PoliceCar : Node2D
     }
 
 
-  public override void _Process(float delta)
-  {
-      target = Position.DirectionTo((Car.Position + CarBody.Position ) - PoliceBody.Position);
-      //this.LookAt(Car.Position + CarBody.Position);
-      PoliceBody.MoveAndSlide(target * delta);
-  }
+     public override void _Process(float delta)
+    {   
+      this.LookAt(CarBody.Position);
+    }
 }
