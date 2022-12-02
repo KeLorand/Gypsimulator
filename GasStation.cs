@@ -18,7 +18,7 @@ public class GasStation : Node2D
 
     public override void _Process(float delta)
     {
-         GD.Print((100 - gameHandler.FuelBar.Value) * 300);
+        
     }
 
     public void _on_Area2D_body_entered(PhysicsBody2D body)
