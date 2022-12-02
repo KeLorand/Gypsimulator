@@ -43,7 +43,6 @@ public class Mobile : Node2D
         hour = curTime.Hour;
         minute = curTime.Minute;
         SysTimeLabel.Text = $"{hour}:{minute}";
-        GD.Print($"{hour}:{minute}");
     }
 
 }

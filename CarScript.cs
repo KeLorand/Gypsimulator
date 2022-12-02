@@ -85,8 +85,6 @@ public class CarScript : Node2D
             isMoving = false;
         }
 
-        GD.Print(isMoving);
-
         if (isMoving == true)
         {
             gameHandler.FuelBar.Value = gameHandler.FuelBar.Value - 0.025f;
