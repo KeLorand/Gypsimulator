@@ -6,6 +6,7 @@ public class GasStation : Node2D
 
     private Node2D ScriptNode;
     private GameHandler gameHandler;
+    private double noMFill;
 
 
     public override void _Ready()
@@ -29,6 +30,13 @@ public class GasStation : Node2D
         {
             gameHandler.money = gameHandler.money - (100 - gameHandler.FuelBar.Value) * 300;
             gameHandler.FuelBar.Value = 100;
+        }
+
+        if (gameHandler.money < (100 - gameHandler.FuelBar.Value) * 300)
+        {
+            noMFill = gameHandler.money / 300;
+            gameHandler.FuelBar.Value = gameHandler.FuelBar.Value + noMFill;
+            gameHandler.money = gameHandler.money - noMFill * 300;
         }
 
     }
