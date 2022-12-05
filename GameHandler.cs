@@ -47,21 +47,21 @@ public class GameHandler : Node2D
 	void SpawnMetal1()
 	{
 		Node2D metal1 = (Node2D)Metal1.Instance();
-		metal1.Position = new Vector2(rng.Next(0, 1280), rng.Next(0, 1280));
+		metal1.Position = new Vector2(rng.Next(-1095, 2806), rng.Next(-1387, 0));
 		this.AddChild(metal1);
 	}
 
 	void SpawnMetal2()
 	{
 		Node2D metal2 = (Node2D)Metal2.Instance();
-		metal2.Position = new Vector2(rng.Next(0, 1280), rng.Next(0, 1280));
+		metal2.Position = new Vector2(rng.Next(-1095, 2806), rng.Next(-1387, 0));
 		this.AddChild(metal2);
 	}
 
 	void SpawnMetal3()
 	{
 		Node2D metal3 = (Node2D)Metal3.Instance();
-		metal3.Position = new Vector2(rng.Next(0, 1280), rng.Next(0, 1280));
+		metal3.Position = new Vector2(rng.Next(-1095, 2806), rng.Next(-1387, 0));
 		this.AddChild(metal3);
 	}
 
