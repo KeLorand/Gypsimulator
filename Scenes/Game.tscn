@@ -176,6 +176,7 @@ position = Vector2( 2649, -1159 )
 
 [node name="Car" type="Node2D" parent="."]
 position = Vector2( 195, -85 )
+z_index = 1
 script = ExtResource( 7 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="Car"]
