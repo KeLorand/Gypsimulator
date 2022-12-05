@@ -4,7 +4,7 @@
 [ext_resource path="res://BittoDuo.mp3" type="AudioStream" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://phone_down.png" type="Texture" id=4]
-[ext_resource path="res://TuneBG.png" type="Texture" id=5]
+[ext_resource path="res://Death.cs" type="Script" id=5]
 [ext_resource path="res://car.png" type="Texture" id=6]
 [ext_resource path="res://CarScript.cs" type="Script" id=7]
 [ext_resource path="res://GameHandler.cs" type="Script" id=8]
@@ -327,15 +327,6 @@ align = 1
 
 [node name="Node2D" type="Node2D" parent="Car/Mobile"]
 
-[node name="DeathScreen" type="Node2D" parent="Car"]
-visible = false
-position = Vector2( -1025, -608 )
-z_index = 2
-
-[node name="Sprite" type="Sprite" parent="Car/DeathScreen"]
-position = Vector2( 512, 300 )
-texture = ExtResource( 5 )
-
 [node name="StealScreen" type="Sprite" parent="Car"]
 visible = false
 position = Vector2( -508, -317 )
@@ -373,6 +364,44 @@ a \"nehezen\" szerzett fémjeid.
 
 UI.: eskü nem vagyok rasszista"
 
+[node name="PoliceScreen" type="Sprite" parent="Car"]
+visible = false
+position = Vector2( -508, -317 )
+z_index = 2
+texture = ExtResource( 22 )
+
+[node name="Sprite" type="Sprite" parent="Car/PoliceScreen"]
+texture = ExtResource( 24 )
+
+[node name="UpperText" type="Label" parent="Car/PoliceScreen/Sprite"]
+margin_left = -52.0
+margin_top = -243.0
+margin_right = -10.0
+margin_bottom = -229.0
+rect_scale = Vector2( 2, 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Bakker!"
+
+[node name="LowerText" type="Label" parent="Car/PoliceScreen/Sprite"]
+margin_left = -227.286
+margin_top = -172.286
+margin_right = -2.28569
+margin_bottom = 11.7143
+rect_scale = Vector2( 2, 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "A jelenlegi üzemanyaghiány 
+a rendörséget is utólérte.
+Kaőpva az alkalmon, el is indultak
+hadjáratra. Sajnos pont te kerültél
+az útjukba, így ellopták az 
+üzemanyagod.
+Mivel kedvesek voltak, és 
+azért mégsem akarják
+teljesen megszopatni a lakosságot,
+így csak a felét vitték el.
+"
+align = 1
+
 [node name="GasStation" parent="." instance=ExtResource( 21 )]
 position = Vector2( 132, -951 )
 
@@ -381,9 +410,81 @@ position = Vector2( 832, -720 )
 rotation = 1.5708
 
 [node name="Helicopter" parent="." instance=ExtResource( 25 )]
-position = Vector2( 3038, 1021 )
+position = Vector2( 528, -410 )
 rotation = -1.5708
 z_index = 2
 
+[node name="DeathScreen" type="Node2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="DeathScreen" type="Sprite" parent="DeathScreen"]
+position = Vector2( -313, -402 )
+z_index = 1
+texture = ExtResource( 22 )
+
+[node name="Sprite" type="Sprite" parent="DeathScreen/DeathScreen"]
+texture = ExtResource( 24 )
+
+[node name="UpperText" type="Label" parent="DeathScreen/DeathScreen/Sprite"]
+margin_left = -52.0
+margin_top = -243.0
+margin_right = -10.0
+margin_bottom = -229.0
+rect_scale = Vector2( 2, 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "A francba!"
+
+[node name="LowerText" type="Label" parent="DeathScreen/DeathScreen/Sprite"]
+margin_left = -222.0
+margin_top = -195.0
+margin_right = 3.0
+margin_bottom = -11.0
+rect_scale = Vector2( 2, 1.8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Sajnos vak voltál, és nem láttad,
+hogy el fog fogyni az üzemanyagod,
+tovább mentél, és bekövetkezett
+a \"váratlan\".
+Mivel azért mégsem vagyok
+köcsög, van egy utolsó esélyed.
+Megkérheted (persze felárért),
+az unokatestvéredet,
+Lakatos \"KoxBoxer\" Fernandez
+Armando Luigi Alfonzót, hogy
+hozzon neked egy kis benzint.
+A benzin ára: 50 ezer Forint."
+align = 1
+
+[node name="Button" type="Button" parent="DeathScreen/DeathScreen"]
+margin_left = -155.0
+margin_top = 173.0
+margin_right = -143.0
+margin_bottom = 193.0
+rect_scale = Vector2( 7, 3 )
+
+[node name="Label" type="Label" parent="DeathScreen/DeathScreen/Button"]
+margin_left = 1.0
+margin_top = 3.66667
+margin_right = 48.0
+margin_bottom = 17.6667
+rect_scale = Vector2( 0.2, 1 )
+text = "Kilépés"
+
+[node name="Button2" type="Button" parent="DeathScreen/DeathScreen"]
+margin_left = 65.0
+margin_top = 172.0
+margin_right = 77.0
+margin_bottom = 192.0
+rect_scale = Vector2( 7, 3 )
+
+[node name="Label" type="Label" parent="DeathScreen/DeathScreen/Button2"]
+margin_left = 1.0
+margin_top = 3.66667
+margin_right = 48.0
+margin_bottom = 17.6667
+rect_scale = Vector2( 0.2, 1 )
+text = "Benzin"
+
 [connection signal="pressed" from="Car/Mobile/MobileOpen" to="Car/Mobile" method="_on_Button_pressed"]
 [connection signal="pressed" from="Car/Mobile/MobileClose" to="Car/Mobile" method="_on_MobileClose_pressed"]
+[connection signal="pressed" from="DeathScreen/DeathScreen/Button2" to="DeathScreen" method="_on_Button2_pressed"]

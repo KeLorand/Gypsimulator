@@ -28,7 +28,7 @@ public class GameHandler : Node2D
 		metalLabel = GetNode("Car/MetalLabel") as Label;
 		moneyLabel = GetNode("Car/MoneyLabel") as Label;
 		FuelBar = GetNode("Car/Fuel/ProgressBar") as ProgressBar;
-		DeathScreen = GetNode("Car/DeathScreen") as Node2D;
+		DeathScreen = GetNode("DeathScreen") as Node2D;
 	}
 
 	
@@ -40,8 +40,6 @@ public class GameHandler : Node2D
 		NoFuel();
 
 		moneyLabel.Text = money.ToString();
-
-
 	}
 
 	void SpawnMetal1()
