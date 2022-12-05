@@ -7,23 +7,23 @@ public class Metal2 : Area2D
     
 
     private GameHandler gameHandler;
-
-
+    private PhysicsBody2D PlayerBody;
 
 
     public override void _Ready()
     {
-
         ScriptNode = GetNode("/root/Node2D") as Node2D;
         gameHandler = ScriptNode as GameHandler;
-
-
-
+        PlayerBody = GetNode("/root/Node2D/Car/KinematicBody2D") as PhysicsBody2D;
     }
 
     public void _on_Area2D_body_entered(PhysicsBody2D body)
     {
-        gameHandler.points += 5;
-        QueueFree();
+        if (body == PlayerBody)
+        {
+            gameHandler.points += 5;
+            QueueFree();
+        }
+        
     }
 }

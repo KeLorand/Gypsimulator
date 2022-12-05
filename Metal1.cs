@@ -9,6 +9,7 @@ public class Metal1 : Area2D
     
 
     private GameHandler gameHandler;
+    private PhysicsBody2D PlayerBody;
 
 
 
@@ -18,11 +19,16 @@ public class Metal1 : Area2D
 
         ScriptNode = GetNode("/root/Node2D") as Node2D;
         gameHandler = ScriptNode as GameHandler;
+        PlayerBody = GetNode("/root/Node2D/Car/KinematicBody2D") as PhysicsBody2D;
     }
 
     public void _on_Area2D_body_entered(PhysicsBody2D body)
     {
-        gameHandler.points++;
-        QueueFree();
+        if (body == PlayerBody)
+        {
+            gameHandler.points++;
+            QueueFree();
+        }
+       
     }
 }

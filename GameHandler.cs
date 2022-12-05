@@ -11,11 +11,11 @@ public class GameHandler : Node2D
 	[Export] PackedScene Metal3;
 	private Random rng = new Random();
 	private float metal1timerTime;
-	private float metal1timerWaitTime = 1f;
+	private float metal1timerWaitTime = 5f;
 	private float metal2timerTime;
-	private float metal2timerWaitTime = 2f;
+	private float metal2timerWaitTime = 10f;
 	private float metal3timerTime;
-	private float metal3timerWaitTime = 3f;
+	private float metal3timerWaitTime = 30f;
 	public int points = 0;
 	public double money = 0;
 	public int horsePower = 180;
