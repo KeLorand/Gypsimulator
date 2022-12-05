@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Menu : Control
+public class credits : Control
 {
     // Declare member variables here. Examples:
     // private int a = 2;
@@ -18,14 +18,4 @@ public class Menu : Control
 //  {
 //      
 //  }
-
- public void _on_Start_pressed(){
-     GetTree().ChangeScene("res://Scenes/Game.tscn");
- }
- public void _on_Exit_pressed(){
-     GetTree().Quit();
- }
- public void _on_Credits_pressed(){
-     GetTree().ChangeScene("res://Menu.tscn");
- }
 }
