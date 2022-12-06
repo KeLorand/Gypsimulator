@@ -6,10 +6,13 @@ public class CarScript : Node2D
 
     public Vector2 direction;
     public Sprite car;
+    private KinematicBody2D CarBody;
     private CollisionShape2D carCollider;
     private Node2D ScriptNode;
     private GameHandler gameHandler;
+    private Sprite WaterScreen;
     private bool isMoving = false;
+    
 
 
 
@@ -17,8 +20,10 @@ public class CarScript : Node2D
     {
         direction = new Vector2(0, 0);
         car = GetNode("KinematicBody2D/Sprite") as Sprite;
+        CarBody = GetNode("KinematicBody2D") as KinematicBody2D;
         ScriptNode = GetNode("/root/Node2D") as Node2D;
         carCollider = GetNode("KinematicBody2D/CarCollider") as CollisionShape2D;
+        WaterScreen = GetNode("WaterScreen") as Sprite;
         gameHandler = ScriptNode as GameHandler;
     }
 
@@ -95,10 +100,14 @@ public class CarScript : Node2D
             Position += direction.Normalized() * gameHandler.horsePower * 2 * deltaTime;
         }
 
+    }
 
-
-
-
-
+    public void _on_Area2D_body_entered(PhysicsBody2D body)
+    {
+        if (body == CarBody)
+        {
+            WaterScreen.Visible = true;
+            gameHandler.canMove = false;
+        }
     }
 }
