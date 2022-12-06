@@ -29,6 +29,7 @@ margin_left = -81.0
 margin_top = -120.0
 margin_right = 205.0
 margin_bottom = 20.0
+size_flags_stretch_ratio = 0.82
 theme = SubResource( 1 )
 alignment = 1
 
