@@ -26,6 +26,6 @@ public class Menu : Control
      GetTree().Quit();
  }
  public void _on_Credits_pressed(){
-     GetTree().ChangeScene("res://Menu.tscn");
+     GetTree().ChangeScene("res://credits.tscn");
  }
 }

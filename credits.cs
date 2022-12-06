@@ -13,6 +13,10 @@ public class credits : Control
         
     }
 
+    public void _on_Button_pressed()
+    {
+        GetTree().ChangeScene("res://Scenes/Menu.tscn");
+    }
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
 //  public override void _Process(float delta)
 //  {

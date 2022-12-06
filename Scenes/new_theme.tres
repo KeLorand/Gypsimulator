@@ -19,7 +19,6 @@ bg_color = Color( 0.176471, 0.105882, 0.105882, 0 )
 Button/colors/font_color = Color( 0.266667, 1, 0, 1 )
 Button/colors/font_color_hover = Color( 0, 0.670588, 1, 1 )
 Button/colors/font_color_pressed = Color( 0.992157, 0, 0, 1 )
-Button/fonts/font = null
 Button/styles/disabled = SubResource( 1 )
 Button/styles/focus = SubResource( 2 )
 Button/styles/hover = SubResource( 3 )
