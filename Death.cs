@@ -31,6 +31,7 @@ public class Death : Node2D
         {
             gameHandler.FuelBar.Value += 50;
             gameHandler.money -= 50000;
+            this.Visible = false;
         }
     }
 }

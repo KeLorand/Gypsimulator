@@ -10,6 +10,7 @@ public class Mobile : Node2D
     private Button MobileOpen;
     private Button MobileClose;
     private Label SysTimeLabel;
+    private Sprite TuningMenu;
     private int hour;
     private int minute;
     
@@ -21,6 +22,7 @@ public class Mobile : Node2D
         MobileOpen = GetNode("MobileOpen") as Button;
         MobileClose = GetNode("MobileClose") as Button;
         SysTimeLabel = GetNode("MobileBG/MobileUI/SysTime") as Label;
+        TuningMenu = GetNode("MobileBG/MobileUI/Sprite") as Sprite;
     }
 
     public void _on_Button_pressed()
@@ -43,6 +45,16 @@ public class Mobile : Node2D
         hour = curTime.Hour;
         minute = curTime.Minute;
         SysTimeLabel.Text = $"{hour}:{minute}";
+    }
+
+    public void _on_TuningClose_pressed()
+    {
+        TuningMenu.Visible = false;
+    }
+
+    public void _on_TuningOpen_pressed()
+    {
+        TuningMenu.Visible = true;
     }
 
 }
