@@ -410,11 +410,13 @@ position = Vector2( 832, -720 )
 rotation = 1.5708
 
 [node name="Helicopter" parent="." instance=ExtResource( 25 )]
-position = Vector2( 528, -410 )
+position = Vector2( 2997, -1135 )
 rotation = -1.5708
 z_index = 2
 
 [node name="DeathScreen" type="Node2D" parent="."]
+visible = false
+z_index = 3
 script = ExtResource( 5 )
 
 [node name="DeathScreen" type="Sprite" parent="DeathScreen"]
@@ -487,4 +489,5 @@ text = "Benzin"
 
 [connection signal="pressed" from="Car/Mobile/MobileOpen" to="Car/Mobile" method="_on_Button_pressed"]
 [connection signal="pressed" from="Car/Mobile/MobileClose" to="Car/Mobile" method="_on_MobileClose_pressed"]
+[connection signal="pressed" from="DeathScreen/DeathScreen/Button" to="DeathScreen" method="_on_Button_pressed"]
 [connection signal="pressed" from="DeathScreen/DeathScreen/Button2" to="DeathScreen" method="_on_Button2_pressed"]
