@@ -25,8 +25,8 @@ public class GameHandler : Node2D
 	
 	public override void _Ready()
 	{
-		metalLabel = GetNode("Car/MetalLabel") as Label;
-		moneyLabel = GetNode("Car/MoneyLabel") as Label;
+		metalLabel = GetNode("Car/Uibox/MetalLabel") as Label;
+		moneyLabel = GetNode("Car/Uibox/MoneyLabel") as Label;
 		FuelBar = GetNode("Car/Fuel/ProgressBar") as ProgressBar;
 		DeathScreen = GetNode("DeathScreen") as Node2D;
 	}
@@ -39,7 +39,7 @@ public class GameHandler : Node2D
 		MetalSpawner(delta);
 		NoFuel();
 
-		moneyLabel.Text = money.ToString();
+		moneyLabel.Text = $"Pénzed:{money} Forint";
 	}
 
 	void SpawnMetal1()

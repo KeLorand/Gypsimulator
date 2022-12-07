@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://phone_up.png" type="Texture" id=1]
 [ext_resource path="res://BittoDuo.mp3" type="AudioStream" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://Scenes/Gypsy.tscn" type="PackedScene" id=23]
 [ext_resource path="res://teglalapfeher.png" type="Texture" id=24]
 [ext_resource path="res://Scenes/Heli.tscn" type="PackedScene" id=25]
+[ext_resource path="res://uibox.png" type="Texture" id=26]
 
 [sub_resource type="ConvexPolygonShape2D" id=10]
 points = PoolVector2Array( 0, 0, 100, 0, 100, 100, 0, 100 )
@@ -195,26 +196,6 @@ texture = ExtResource( 6 )
 [node name="CarCollider" type="CollisionShape2D" parent="Car/KinematicBody2D"]
 position = Vector2( -503.8, -314.2 )
 shape = SubResource( 8 )
-
-[node name="MetalLabel" type="Label" parent="Car"]
-margin_left = -1281.0
-margin_top = -754.0
-margin_right = -1081.0
-margin_bottom = -740.0
-rect_scale = Vector2( 2, 2 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Metal Label:"
-valign = 1
-
-[node name="MoneyLabel" type="Label" parent="Car"]
-margin_left = -1283.0
-margin_top = -725.0
-margin_right = -1064.0
-margin_bottom = -711.0
-rect_scale = Vector2( 2, 2 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Pénz:"
-valign = 1
 
 [node name="Fuel" type="Node2D" parent="Car"]
 position = Vector2( 256, 158 )
@@ -435,6 +416,29 @@ teljesen megszopatni a lakosságot,
 "
 align = 1
 
+[node name="Uibox" type="Sprite" parent="Car"]
+position = Vector2( -1027, -493 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 26 )
+
+[node name="MetalLabel" type="Label" parent="Car/Uibox"]
+margin_left = -117.0
+margin_top = -106.5
+margin_right = 83.0
+margin_bottom = -92.5
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Metal Label:"
+valign = 1
+
+[node name="MoneyLabel" type="Label" parent="Car/Uibox"]
+margin_left = -117.0
+margin_top = -76.5
+margin_right = 102.0
+margin_bottom = -62.5
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Pénz:"
+valign = 1
+
 [node name="GasStation" parent="." instance=ExtResource( 21 )]
 position = Vector2( 132, -951 )
 
@@ -443,7 +447,7 @@ position = Vector2( 832, -720 )
 rotation = 1.5708
 
 [node name="Helicopter" parent="." instance=ExtResource( 25 )]
-position = Vector2( 2997, -1135 )
+position = Vector2( 2985, -1287 )
 rotation = -1.5708
 z_index = 2
 

@@ -28,7 +28,7 @@ public class Helicopter : Node2D
         this.Translate(new Vector2(-7, 0));
         if (this.Position.x <= -1349)
         {
-            this.Position = new Vector2(2957, rng.Next(1021, 1357));
+            this.Position = new Vector2(2957, rng.Next(-1021, 1357));
         }
         rotor.RotationDegrees += 20;
         if (rotor.RotationDegrees >= 360)
